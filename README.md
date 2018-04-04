@@ -121,7 +121,7 @@ apis = ["web3", "eth", "net", "parity", "rpc", "secretstore", "pubsub"]
 hosts = ["all"]
 [account]
 unlock = ["0xETH_ACCOUNT_VALIDATOR_SOKOL"] # Please provide your OWN ETH public Key here
-password = ["parity_password"] # specify password for the  key above
+password = ["parity_password"] # Name of the file containing the password for the key above
 
 ```
   * from the config above you have to create `keys` folder in: `sokol-datadir/keys/Sokol` and insert your JSON keystore `0xETH_ACCOUNT_VALIDATOR_SOKOL` eth key
@@ -207,7 +207,7 @@ apis = ["web3", "eth", "net", "parity", "rpc", "secretstore", "pubsub"]
 hosts = ["all"]
 [account]
 unlock = ["0xETH_ACCOUNT_VALIDATOR_KOVAN"] # Please provide your OWN ETH public Key here for Validator
-password = ["parity_password"] # specify password for the  key above
+password = ["parity_password"] # Name of the file containing the password for the key above
 
 ```
 * from the config above you have to create `keys` folder in: `kovan-datadir/keys/kovan` and insert your JSON keystore `0xETH_ACCOUNT_VALIDATOR_KOVAN` eth key that will be used for validation of the bridge

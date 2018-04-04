@@ -134,19 +134,21 @@ parity --config sokol.toml --nat=none --no-ui
 3. Get POA Bridge contracts:
   * `git clone https://github.com/poanetwork/poa-parity-bridge-contracts.git`
   * `cd poa-parity-bridge-contracts && npm install`
-  * open `truffle.js` file and make sure you add the following your home network config:
+  * open `truffle.js` file and make sure you add the following your home network config, including your own public key as the `from` fields:
 ```js
 module.exports = {
   networks: {
     development: {
       host: "localhost",
       port: 7545,
-      network_id: "*" // Match any network id
+      network_id: "*", // Match any network id
+      from: "0xETH_ACCOUNT_VALIDATOR_SOKOL"
     },
     home: {
       host: "localhost",
       port: "8545", // check your sokol.toml [rpc] port section
       network_id: "*",
+      from: "0xETH_ACCOUNT_VALIDATOR_SOKOL",
       gas: 4700000,
       gasPrice: 1000000000
     }
@@ -155,7 +157,7 @@ module.exports = {
 ```
   * Make sure your parity Home(sokol) node is fully synced by this step
   * Get free Sokol Coins from the [sokol-faucet](https://faucet-sokol.herokuapp.com/)
-  * Run the deployment script with following parameters:
+  * Run the deployment script (from inside the poa-parity-bridge-contracts directory) with following parameters:
 ```bash
 VALIDATORS="0xETH_ACCOUNT_VALIDATOR_SOKOL 0xVALIDATOR_2" REQUIRED_NUMBER_OF_VALIDATORS=1 HOME_LIMIT=1000000000000000000 MAX_AMOUNT_PER_TX=100000000000000000 PROXY_OWNER="YOUR_UNLOCKED_PARITY_ACCOUNT" NETWORK=home npm run deploy
 ```
@@ -245,7 +247,7 @@ module.exports = {
   }
 };
 ```
-  * Run the deployment script with following parameters:
+  * Run the deployment script (from inside the poa-parity-bridge-contracts directory) with following parameters:
 ```bash
 VALIDATORS="0xVALIDATOR_1 0xVALIDATOR_2" REQUIRED_NUMBER_OF_VALIDATORS=1 FOREIGN_LIMIT=1000000000000000000 MAX_AMOUNT_PER_TX=100000000000000000 NETWORK=foreign npm run deploy
 ```
